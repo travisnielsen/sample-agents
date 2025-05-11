@@ -24,6 +24,11 @@ string clientSecret = Environment.GetEnvironmentVariable("CLIENT_SECRET") ?? str
 if (string.IsNullOrEmpty(clientSecret))
     throw new InvalidOperationException("CLIENT_SECRET environment variable is not set.");
 
+string targetPort = Environment.GetEnvironmentVariable("TARGET_PORT") ?? string.Empty;
+if (string.IsNullOrEmpty(targetPort))
+    throw new InvalidOperationException("TARGET_PORT environment variable is not set.");
+
+
 if (builder.Environment.IsDevelopment())
 {
     builder.Configuration.AddUserSecrets<Program>();
@@ -63,7 +68,5 @@ app.MapPost("/api/messages", async (HttpRequest request, HttpResponse response, 
 })
     .AllowAnonymous();
 
-// Hardcoded for brevity and ease of testing. 
-// In production, this should be set in configuration.
-app.Urls.Add($"http://localhost:3978");
+app.Urls.Add($"http://*:{targetPort}");
 app.Run();

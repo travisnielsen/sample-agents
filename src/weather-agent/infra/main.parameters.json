@@ -13,6 +13,15 @@
       },
       "principalId": {
         "value": "${AZURE_PRINCIPAL_ID}"
+      },
+      "clientSecret": {
+        "value": "${CLIENT_SECRET}"
+      },
+      "azureOpenAIAPIKey": {
+        "value": "${AZURE_OPENAI_API_KEY}"
+      },
+      "targetPort": {
+        "value": "${TARGET_PORT}"
       }
     }
 }

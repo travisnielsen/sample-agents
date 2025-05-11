@@ -48,9 +48,11 @@ If all is working correctly, the Bot Emulator should show you a Web Chat experie
 1. Configuring the token connection in the Agent settings
    > The instructions for this sample are for a SingleTenant Azure Bot using ClientSecrets.  The token connection configuration will vary if a different type of Azure Bot was configured.
 
-   1. Open the `appsettings.json` file in the root of the sample project.
+   1. Create a new file at the root of the sample project named: `appsettings.Production.json`. This file will contain sensitive values such as the client secret and will be exempted from source control.
 
-   1. Find the section labeled `Connections`,  it should appear similar to this:
+   1. Copy the contents from the provided `appsettings.json` file into `appsettings.Production.json`.
+
+   1. In `appsettings.Production.json`, find the section labeled `Connections`,  it should appear similar to this:
 
       ```json
       "TokenValidation": {
@@ -101,7 +103,7 @@ If all is working correctly, the Bot Emulator should show you a Web Chat experie
    > NOTE: Go to your project directory and open the `./Properties/launchSettings.json` file. Check the port number and use that port number in the devtunnel command (instead of 3978).
 
    ```bash
-   devtunnel host -p 3978 --allow-anonymous
+   devtunnel host -p 8080 --allow-anonymous
    ```
 
 1. On the Azure Bot, select **Settings**, then **Configuration**, and update the **Messaging endpoint** to `{tunnel-url}/api/messages`

@@ -5,7 +5,7 @@
 		<LangVersion>latest</LangVersion>
 		<ImplicitUsings>disable</ImplicitUsings>
 		<NoWarn>$(NoWarn);SKEXP0010</NoWarn>
-	  <UserSecretsId>e109fd89-792e-44f4-b547-5d1728fa1eb1</UserSecretsId>
+    <UserSecretsId>74746ee3-289d-4830-b4db-5c29fce3404b</UserSecretsId>
   </PropertyGroup>
 
 	<ItemGroup>
@@ -29,6 +29,9 @@
 
 	<ItemGroup>
 		<Content Update="appsettings.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Update="appsettings.Production.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
 	</ItemGroup>
