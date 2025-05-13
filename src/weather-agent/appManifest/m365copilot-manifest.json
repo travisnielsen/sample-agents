@@ -1,57 +1,56 @@
 {
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/vdevPreview/MicrosoftTeams.schema.json",
-  "manifestVersion": "devPreview",
   "version": "1.0.0",
-  "id": "d3f728d0-8929-41c6-bb12-d5921453a241",
-  "packageName": "com.microsoft.agents.copilotoauth",
+  "manifestVersion": "devPreview",
+  "id": "8e0b57a2-0278-4476-873b-1ff82b0a7fc2",
+  "name": {
+    "short": "Weather Sim Agent",
+    "full": "WeatherSim Streamer Example"
+  },
   "developer": {
     "name": "Contoso",
-    "websiteUrl": "https://example.azurewebsites.net",
+    "mpnId": "",
+    "websiteUrl": "https://weatheragent.proudground-42b185aa.centralus.azurecontainerapps.io",
     "privacyUrl": "https://example.azurewebsites.net/privacy",
     "termsOfUseUrl": "https://example.azurewebsites.net/termsofuse"
   },
-  "icons": {
-    "color": "color.png",
-    "outline": "outline.png"
-  },
-  "name": {
-    "short": "WeatherSim Streamer",
-    "full": "WeatherSim Streamer Example"
-  },
   "description": {
-    "short": "Sample demonstrating AgentSDK + Azure Bot Services + Azure AI Fondry",
-    "full": "This sample demonstrates how to integrate Azure AI Foundry capabilities built with the AgentSDK and manage Streaming Responses to callerss"
+    "short": "Sample demonstrating AgentSDK + Azure Bot Services + Azure AI Foundry",
+    "full": "This sample demonstrates how to integrate Azure AI Foundry capabilities built with the AgentSDK and manage Streaming Responses to callers"
+  },
+  "icons": {
+    "outline": "outline.png",
+    "color": "color.png"
   },
   "accentColor": "#FFFFFF",
-  "copilotAgents": {
-    "customEngineAgents": [
-      {
-        "id": "d3f728d0-8929-41c6-bb12-d5921453a241",
-        "type": "bot"
-      }
-    ]
-  },
   "bots": [
     {
-      "botId": "d3f728d0-8929-41c6-bb12-d5921453a241",
+      "botId": "0999ace1-603d-4ac2-a91b-2ddfe4c65c8e",
       "scopes": [
         "personal",
-        "groupChat"
+        "groupChat",
+        "copilot"
       ],
-      "supportsFiles": false,
-      "isNotificationOnly": false
+      "isNotificationOnly": false,
+      "supportsCalling": false,
+      "supportsVideo": false,
+      "supportsFiles": false
     }
-  ],
-  "permissions": [
-    "identity",
-    "messageTeamMembers"
   ],
   "validDomains": [
     "token.botframework.com",
-    "<<AGENT_DOMAIN>>"
+    "weatheragent.proudground-42b185aa.centralus.azurecontainerapps.io"
   ],
   "webApplicationInfo": {
-    "id": "d3f728d0-8929-41c6-bb12-d5921453a241",
-    "resource": "api://d3f728d0-8929-41c6-bb12-d5921453a241"
+    "id": "0999ace1-603d-4ac2-a91b-2ddfe4c65c8e",
+    "resource": "api://0999ace1-603d-4ac2-a91b-2ddfe4c65c8e"
+  },
+  "copilotAgents": {
+    "customEngineAgents": [
+      {
+        "type": "bot",
+        "id": "0999ace1-603d-4ac2-a91b-2ddfe4c65c8e"
+      }
+    ]
   }
 }
