@@ -25,7 +25,7 @@
   "accentColor": "#FFFFFF",
   "bots": [
     {
-      "botId": "0999ace1-603d-4ac2-a91b-2ddfe4c65c8e",
+      "botId": "4274223a-cd62-41ef-abae-56ebf3852fa8",
       "scopes": [
         "personal",
         "groupChat",
@@ -42,14 +42,14 @@
     "weatheragent.proudground-42b185aa.centralus.azurecontainerapps.io"
   ],
   "webApplicationInfo": {
-    "id": "0999ace1-603d-4ac2-a91b-2ddfe4c65c8e",
-    "resource": "api://0999ace1-603d-4ac2-a91b-2ddfe4c65c8e"
+    "id": "4274223a-cd62-41ef-abae-56ebf3852fa8",
+    "resource": "api://4274223a-cd62-41ef-abae-56ebf3852fa8"
   },
   "copilotAgents": {
     "customEngineAgents": [
       {
         "type": "bot",
-        "id": "0999ace1-603d-4ac2-a91b-2ddfe4c65c8e"
+        "id": "4274223a-cd62-41ef-abae-56ebf3852fa8"
       }
     ]
   }
