@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/vdevPreview/MicrosoftTeams.schema.json",
+  "manifestVersion": "devPreview",
+  "version": "1.0.0",
+  "id": "4274223a-cd62-41ef-abae-56ebf3852fa8",
+  "packageName": "com.microsoft.agents.copilotoauth",
+  "developer": {
+    "name": "Microsoft, Inc.",
+    "websiteUrl": "https://example.azurewebsites.net",
+    "privacyUrl": "https://example.azurewebsites.net/privacy",
+    "termsOfUseUrl": "https://example.azurewebsites.net/termsofuse"
+  },
+  "icons": {
+    "color": "color.png",
+    "outline": "outline.png"
+  },
+  "name": {
+    "short": "AgentSDK Auto SignIn (OAuth)",
+    "full": "AgentSDK Automatic User Sign-in Authorization (OAuth)"
+  },
+  "description": {
+    "short": "Sample demonstrating AgentSDK + Azure Bot Services for user authorization.",
+    "full": "This sample demonstrates how to integrate Azure AD authorization in an Agent with Single Sign-On (SSO) capabilities built with the AgentSDK"
+  },
+  "accentColor": "#FFFFFF",
+  "copilotAgents": {
+    "customEngineAgents": [
+      {
+        "id": "4274223a-cd62-41ef-abae-56ebf3852fa8",
+        "type": "bot"
+      }
+    ]
+  },
+  "bots": [
+    {
+      "botId": "4274223a-cd62-41ef-abae-56ebf3852fa8",
+      "scopes": [
+        "personal"
+      ],
+      "commandLists": [
+        {
+          "scopes": [
+            "team",
+            "personal"
+          ],
+          "commands": [
+            {
+              "title": "SignOut",
+              "description": "this issues a signout command to the AutoSignin Agent example"
+            }
+          ]
+        }
+      ],
+      "supportsFiles": false,
+      "isNotificationOnly": false
+    }
+  ],
+  "permissions": [
+    "identity",
+    "messageTeamMembers"
+  ],
+  "validDomains": [
+    "token.botframework.com",
+    "weatheragent.proudground-42b185aa.centralus.azurecontainerapps.io"
+  ],
+  "webApplicationInfo": {
+    "id": "4274223a-cd62-41ef-abae-56ebf3852fa8",
+    "resource": "api://4274223a-cd62-41ef-abae-56ebf3852fa8"
+  }
+}
