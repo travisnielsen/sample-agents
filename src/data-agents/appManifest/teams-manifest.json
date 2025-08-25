@@ -6,7 +6,7 @@
   "packageName": "com.microsoft.agents.oauth",
   "developer": {
     "name": "Contoso",
-    "websiteUrl": "https://example.azurewebsites.net",
+    "websiteUrl": "https://weatheragent.proudground-42b185aa.centralus.azurecontainerapps.io",
     "privacyUrl": "https://example.azurewebsites.net/privacy",
     "termsOfUseUrl": "https://example.azurewebsites.net/termsofuse"
   },
@@ -19,7 +19,7 @@
     "full": "WeatherSim Streamer Example"
   },
   "description": {
-    "short": "Sample demonstrating AgentSDK + Azure Bot Services + Azure AI Fondry",
+    "short": "Sample demonstrating AgentSDK + Azure Bot Services + Azure AI Foundry",
     "full": "This sample demonstrates how to integrate Azure AI Foundry capabilities built with the AgentSDK and manage Streaming Responses to callerss"
   },
   "accentColor": "#FFFFFF",
@@ -39,7 +39,7 @@
   ],
   "validDomains": [
     "token.botframework.com",
-    "<<AGENT_DOMAIN>>"
+    "weatheragent.proudground-42b185aa.centralus.azurecontainerapps.io"
   ],
   "webApplicationInfo": {
     "id": "d3f728d0-8929-41c6-bb12-d5921453a241",

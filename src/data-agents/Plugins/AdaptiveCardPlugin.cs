@@ -5,7 +5,7 @@ using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 using System.Threading.Tasks;
 
-namespace WeatherBot.Plugins;
+namespace DataBot.Plugins;
 
 public class AdaptiveCardPlugin
 {

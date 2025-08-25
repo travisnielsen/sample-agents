@@ -1,15 +1,15 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/Azure/azure-dev/main/schemas/v1.0/azure.yaml.json
 
-name: weatherAgent
+name: dataagent
 metadata:
     template: azd-init@1.15.1
 services:
-    weatherAgent:
+    dataAgent:
         project: .
         host: containerapp
         language: dotnet
-        containerapp:
-            name: weatheragent
+        config:
+            name: dataagent
             location: centralus
             environment: contoso-agents
             ingress:

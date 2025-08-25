@@ -48,7 +48,7 @@ module resources 'resources.bicep' = {
     location: location
     tags: tags
     principalId: principalId
-    weatherAgentExists: agentExists
+    dataAgentExists: agentExists
     clientSecret: clientSecret
     azureOpenAIAPIKey: azureOpenAIAPIKey
     targetPort: targetPort

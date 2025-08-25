@@ -9,9 +9,9 @@ using System;
 using System.Text;
 using System.Text.Json.Nodes;
 using System.Threading.Tasks;
-using WeatherBot.Plugins;
+using DataBot.Plugins;
 
-namespace WeatherBot.Agents;
+namespace DataBot.Agents;
 
 public class WeatherForecastAgent
 {

@@ -4,7 +4,7 @@ param location string = resourceGroup().location
 @description('Tags that will be applied to all resources')
 param tags object = {}
 
-param weatherAgentExists bool
+param dataAgentExists bool
 
 @description('Id of the user or app to assign application roles')
 param principalId string
@@ -46,7 +46,7 @@ module containerRegistry 'br/public:avm/res/container-registry/registry:0.1.1' =
     publicNetworkAccess: 'Enabled'
     roleAssignments:[
       {
-        principalId: weatherAgentIdentity.outputs.principalId
+        principalId: dataAgentIdentity.outputs.principalId
         principalType: 'ServicePrincipal'
         roleDefinitionIdOrName: subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '7f951dda-4ed3-4680-a7ca-43fe172d538d')
       }
@@ -65,25 +65,25 @@ module containerAppsEnvironment 'br/public:avm/res/app/managed-environment:0.4.5
   }
 }
 
-module weatherAgentIdentity 'br/public:avm/res/managed-identity/user-assigned-identity:0.2.1' = {
-  name: 'weatherAgentidentity'
+module dataAgentIdentity 'br/public:avm/res/managed-identity/user-assigned-identity:0.2.1' = {
+  name: 'dataAgentidentity'
   params: {
-    name: '${abbrs.managedIdentityUserAssignedIdentities}weatherAgent-${resourceToken}'
+    name: '${abbrs.managedIdentityUserAssignedIdentities}dataAgent-${resourceToken}'
     location: location
   }
 }
-module weatherAgentFetchLatestImage './modules/fetch-container-image.bicep' = {
-  name: 'weatherAgent-fetch-image'
+module dataAgentFetchLatestImage './modules/fetch-container-image.bicep' = {
+  name: 'dataAgent-fetch-image'
   params: {
-    exists: weatherAgentExists
-    name: 'weatherAgent'
+    exists: dataAgentExists
+    name: 'dataAgent'
   }
 }
 
-module weatherAgent 'br/public:avm/res/app/container-app:0.8.0' = {
-  name: 'weatherAgent'
+module dataAgent 'br/public:avm/res/app/container-app:0.8.0' = {
+  name: 'dataAgent'
   params: {
-    name: 'weatheragent'
+    name: 'dataagent'
     ingressTargetPort: int(targetPort)
     scaleMinReplicas: 1
     scaleMaxReplicas: 10
@@ -101,7 +101,7 @@ module weatherAgent 'br/public:avm/res/app/container-app:0.8.0' = {
     }
     containers: [
       {
-        image: weatherAgentFetchLatestImage.outputs.?containers[?0].?image ?? 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
+        image: dataAgentFetchLatestImage.outputs.?containers[?0].?image ?? 'mcr.microsoft.com/azuredocs/containerapps-helloworld:latest'
         name: 'main'
         resources: {
           cpu: json('0.5')
@@ -114,7 +114,7 @@ module weatherAgent 'br/public:avm/res/app/container-app:0.8.0' = {
           }
           {
             name: 'AZURE_CLIENT_ID'
-            value: weatherAgentIdentity.outputs.clientId
+            value: dataAgentIdentity.outputs.clientId
           }
           {
             name: 'TARGET_PORT'
@@ -137,18 +137,18 @@ module weatherAgent 'br/public:avm/res/app/container-app:0.8.0' = {
     ]
     managedIdentities:{
       systemAssigned: false
-      userAssignedResourceIds: [weatherAgentIdentity.outputs.resourceId]
+      userAssignedResourceIds: [dataAgentIdentity.outputs.resourceId]
     }
     registries:[
       {
         server: containerRegistry.outputs.loginServer
-        identity: weatherAgentIdentity.outputs.resourceId
+        identity: dataAgentIdentity.outputs.resourceId
       }
     ]
     environmentResourceId: containerAppsEnvironment.outputs.resourceId
     location: location
-    tags: union(tags, { 'azd-service-name': 'weatherAgent' })
+    tags: union(tags, { 'azd-service-name': 'dataAgent' })
   }
 }
 output AZURE_CONTAINER_REGISTRY_ENDPOINT string = containerRegistry.outputs.loginServer
-output AZURE_RESOURCE_AGENT_ID string = weatherAgent.outputs.resourceId
+output AZURE_RESOURCE_AGENT_ID string = dataAgent.outputs.resourceId

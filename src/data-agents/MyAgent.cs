@@ -12,9 +12,9 @@ using Microsoft.SemanticKernel.ChatCompletion;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using WeatherBot.Agents;
+using DataBot.Agents;
 
-namespace WeatherBot;
+namespace DataBot;
 
 public class MyAgent : AgentApplication
 {

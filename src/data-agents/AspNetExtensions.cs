@@ -20,7 +20,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace WeatherBot;
+namespace DataBot;
 
 public static class AspNetExtensions
 {

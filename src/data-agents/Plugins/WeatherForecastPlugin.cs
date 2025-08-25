@@ -7,7 +7,7 @@ using Microsoft.SemanticKernel;
 using System;
 using System.Threading.Tasks;
 
-namespace WeatherBot.Plugins;
+namespace DataBot.Plugins;
 
 public class WeatherForecastPlugin(ITurnContext turnContext)
 {

@@ -10,7 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.SemanticKernel;
 using System;
 using System.Threading;
-using WeatherBot;
+using DataBot;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +27,6 @@ if (string.IsNullOrEmpty(clientSecret))
 string targetPort = Environment.GetEnvironmentVariable("TARGET_PORT") ?? string.Empty;
 if (string.IsNullOrEmpty(targetPort))
     throw new InvalidOperationException("TARGET_PORT environment variable is not set.");
-
 
 if (builder.Environment.IsDevelopment())
 {

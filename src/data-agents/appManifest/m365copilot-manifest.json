@@ -4,8 +4,8 @@
   "manifestVersion": "devPreview",
   "id": "8e0b57a2-0278-4476-873b-1ff82b0a7fc2",
   "name": {
-    "short": "Weather Sim Agent",
-    "full": "WeatherSim Streamer Example"
+    "short": "Data Agent",
+    "full": "Demonstrate natural language interation against multiple data sources based on user intent."
   },
   "developer": {
     "name": "Contoso",
